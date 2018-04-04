@@ -5,17 +5,20 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class VenueController {
-	
+	@Autowired
 	VenueService venueService;
 	
 	public VenueController(VenueService venueService) {
@@ -44,9 +47,9 @@ public class VenueController {
 //		return "venue updated";
 //	}
 	
-	@RequestMapping("/updateVenue/")
-	public String updateVenue(@RequestBody String venueId, String field, String updatedValue) {
-		venueService.updateVenue(Integer.parseInt(venueId), field, updatedValue);
+	@PutMapping("/updateVenue")
+	public String updateVenue(@RequestBody JSONObject jsonObj) throws ParseException {
+		venueService.updateVenue(jsonObj);
 		return "venue updated";
 	}
 	

@@ -45,12 +45,16 @@ public class VenueDao {
 		switch (field) {
 			case "venueName":
 				SQL = "UPDATE VENUES SET venueName = \'" + updatedValue + "\'" + "WHERE venueId = " + id;
+				break;
 			case "address":
 				SQL = "UPDATE VENUES SET address = \'" + updatedValue + "\'" + "WHERE venueId = " + id;
+				break;
 			case "capacity":
-				SQL = "UPDATE VENUES SET capacity = \'" + updatedValue + "\'" + "WHERE venueId = " + id;				
+				SQL = "UPDATE VENUES SET capacity = \'" + updatedValue + "\'" + "WHERE venueId = " + id;	
+				break;
 			case "transitInfo":
 				SQL = "UPDATE VENUES SET transitInfo = \'" + updatedValue + "\'" + "WHERE venueId = " + id;
+				break;
 		}
 		
 		jdbcTemplate.update(SQL);
