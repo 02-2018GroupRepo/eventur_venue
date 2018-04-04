@@ -16,7 +16,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class CommonConfig {
 
- @Qualifier("dataSource")
+// @Qualifier("dataSource")
  @Autowired
  DataSource dataSource;
 
