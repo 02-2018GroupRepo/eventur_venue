@@ -8,6 +8,7 @@ public class Venue {
 	private int capacity;
 	private String transitInfo;
 	private boolean availability;
+	private int counter = 3;
 	
 	public Venue() {
 		venueId = 99;
@@ -16,6 +17,15 @@ public class Venue {
 		capacity = 0;
 		transitInfo = "default transit info";
 		availability = false;
+	}
+	
+	public Venue(String name, String address, int capacity, String transitInfo) {
+		this.venueId = makeVenueId();
+		this.venueName = name;
+		this.address = address;
+		this.capacity = capacity;
+		this.transitInfo = transitInfo;
+		availability = true;
 	}
 
 	public int getVenueId() {
@@ -59,12 +69,17 @@ public class Venue {
 		this.transitInfo = transitInfo;
 	}
 
-	public boolean isAvailability() {
+	public boolean getAvailability() {
 		return availability;
 	}
 
 	public void setAvailability(boolean availability) {
 		this.availability = availability;
+	}
+	
+	public int makeVenueId() {
+		counter++;
+		return counter;
 	}
 
 }

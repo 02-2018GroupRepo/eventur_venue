@@ -23,6 +23,7 @@ hs_err_pid*
 
 # cloud no nos
 application.properties
+.properties
 
 # spock reports
 .html
