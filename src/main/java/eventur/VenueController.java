@@ -13,26 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class VenueController {
 	
+	VenueService venueService = new VenueService();
 
-	@Autowired
-	private DataSource dataSource;
-	
-	private JdbcTemplate jdbcTemplate;
-//	VenueService venueService = new VenueService();
-	
-	@PostConstruct
-	public void initDataSource() { jdbcTemplate = new JdbcTemplate(dataSource); }
-	
 	@GetMapping("/testing")
 	public String testingconnection() {
-		return jdbcTemplate.queryForRowSet("select * from venues").toString();
+		return venueService.venueDao.testingconnection();
 	}
 	
 	@GetMapping("/showTable")
 	public List showTable() {
-		return jdbcTemplate.queryForList("select * from venues");		
+		return venueService.venueDao.showTable();
 	}
-	
 	
 	
 }
