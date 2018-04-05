@@ -32,7 +32,7 @@ public class VenueDao {
 	}
 	
 	public Venue getVenueByID(int id) {
-		String SQL= "SELECT venueId, venueName, address, capacity, transitInfo, availability FROM venue_test WHERE venueId=" + id;
+		String SQL= "SELECT venueId, venueName, address, capacity, transitInfo, availability FROM venues WHERE venueId=" + id;
 		List<Venue> venue = jdbcTemplate.query(SQL, new BeanPropertyRowMapper<>(Venue.class));
 		return venue.get(0);
 	}
