@@ -15,13 +15,10 @@ public class VenueDao {
 
 	String table = "Venues";
 
-	@Autowired
-	private DataSource dataSource;
 	
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	@PostConstruct
-	public void initDataSource() { jdbcTemplate = new JdbcTemplate(dataSource); }
 	
 	public List<?> showTable() {
 		return jdbcTemplate.queryForList("select * from " + table);
@@ -35,7 +32,7 @@ public class VenueDao {
 	}
 	
 	public Venue getVenueByID(int id) {
-		String SQL= "SELECT venueId, venueName, address, capacity, transitInfo, availability FROM venues WHERE venueId=" + id;
+		String SQL= "SELECT venueId, venueName, address, capacity, transitInfo, availability FROM venue_test WHERE venueId=" + id;
 		List<Venue> venue = jdbcTemplate.query(SQL, new BeanPropertyRowMapper<>(Venue.class));
 		return venue.get(0);
 	}

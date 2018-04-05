@@ -1,0 +1,1 @@
+INSERT INTO venue_test VALUES(5, 'Philips Center', 'Somewhere', 789, 'Bus and Cars', false);

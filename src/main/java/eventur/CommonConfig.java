@@ -20,7 +20,6 @@ public class CommonConfig {
  @Autowired
  DataSource dataSource;
 
- 
 
  @Bean
  public RestTemplate getRestTemplate() { return new RestTemplate(); }
